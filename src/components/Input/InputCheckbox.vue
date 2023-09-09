@@ -5,18 +5,16 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex h-6 items-center">
+  <div class="flex items-center gap-x-3">
     <input
         :id="id"
         :name="id"
         type="checkbox"
         class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
     >
-  </div>
-  <div class="text-sm leading-6">
     <label
         :for="id"
-        class="font-medium text-gray-900"
+        class="block text-sm font-medium leading-6 text-gray-600"
     >
       <slot></slot>
     </label>

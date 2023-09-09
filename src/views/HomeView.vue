@@ -29,6 +29,7 @@ const survey = {
     {
       "id": 1,
       "survey_id": 1,
+      "type": 'single-option',
       "title": "Qual sua maior dificuldade em gerenciar sua agenda?",
       "created_at": "2023-09-07T11:38:43.000Z",
       "updated_at": "2023-09-07T11:38:43.000Z",
@@ -59,6 +60,7 @@ const survey = {
     {
       "id": 4,
       "survey_id": 1,
+      "type": "multiple-options",
       "title": "Qual a frequência de cancelamentos sem aviso?",
       "created_at": "2023-09-07T13:05:39.000Z",
       "updated_at": "2023-09-07T13:05:40.000Z",
@@ -85,6 +87,15 @@ const survey = {
           "updated_at": "2023-09-07T13:26:50.000Z"
         }
       ]
+    },
+    {
+      "id": 6,
+      "survey_id": 1,
+      "type": "text",
+      "title": "Uma sugestão para funcionalidade do sistema de agendamento?",
+      "created_at": "2023-09-07T13:05:39.000Z",
+      "updated_at": "2023-09-07T13:05:40.000Z",
+      "options": []
     }
   ]
 }
