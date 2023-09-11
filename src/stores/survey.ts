@@ -1,5 +1,5 @@
 import {defineStore} from "pinia"
-import {computed, reactive} from "vue"
+import {computed, reactive, ref} from "vue"
 import {SurveyModel} from "@/models/survey.model"
 import {loadSurvey as _loadSurvey} from "@/services/api"
 
@@ -8,19 +8,24 @@ export const useSurveyStore = defineStore('survey', () => {
     data: new SurveyModel()
   })
 
+  const status = ref<number>(0)
+
   const numberQuestions = computed(() => {
     return survey.data?.questions?.length ?? 0
   })
 
   async function loadSurvey(token) {
     const response = await _loadSurvey(token)
+    const content = await response.json()
 
-    if (!response)  {
-      // ToDo // lançar erro na tela
+    status.value = response.status
+
+    if (response.status === 200)  {
+      survey.data = new SurveyModel(content.survey)
+    } else {
+      survey.data = null
     }
-
-    survey.data = new SurveyModel(response.survey)
   }
 
-  return { survey, numberQuestions, loadSurvey }
+  return { survey, status, numberQuestions, loadSurvey }
 })
