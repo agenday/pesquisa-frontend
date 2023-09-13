@@ -6,7 +6,7 @@ import HeadingLarge from "@/components/Heading/HeadingLarge.vue";
 <template>
   <div class="w-full min-h-screen flex flex-col px-8 justify-center items-center gap-3">
     <HeadingLarge>:(</HeadingLarge>
-    <HeadingSmall>Página não encontrada</HeadingSmall>
+    <HeadingSmall>Erro interno. Desculpe.</HeadingSmall>
   </div>
 </template>
 

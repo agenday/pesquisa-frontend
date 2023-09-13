@@ -4,7 +4,7 @@ import ParagraphItem from "@/components/Paragraph/ParagraphItem.vue"
 import HeadingSmall from "@/components/Heading/HeadingSmall.vue"
 import ButtonItem from "@/components/Button/ButtonItem.vue"
 import {computed} from "vue"
-import {useSurveyStore} from "@/stores/survey";
+import {useSurveyStore} from "@/stores/survey.store";
 import {storeToRefs} from "pinia";
 
 const useSurvey = useSurveyStore()

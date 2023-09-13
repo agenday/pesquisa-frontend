@@ -8,24 +8,29 @@ export const useSurveyStore = defineStore('survey', () => {
     data: new SurveyModel()
   })
 
+  const token = ref('')
+
   const status = ref<number>(0)
 
   const numberQuestions = computed(() => {
     return survey.data?.questions?.length ?? 0
   })
 
-  async function loadSurvey(token) {
-    const response = await _loadSurvey(token)
+  async function loadSurvey(_token) {
+    token.value = _token
+
+    const response = await _loadSurvey(_token)
+
+    if (response === null) {
+      status.value = 500
+      return
+    }
+
     const content = await response.json()
 
     status.value = response.status
-
-    if (response.status === 200)  {
-      survey.data = new SurveyModel(content.survey)
-    } else {
-      survey.data = null
-    }
+    survey.data = response.status === 200 ? new SurveyModel(content.survey) : null;
   }
 
-  return { survey, status, numberQuestions, loadSurvey }
+  return { survey, status, token, numberQuestions, loadSurvey }
 })
