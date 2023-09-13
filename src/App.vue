@@ -3,7 +3,9 @@ import {RouterView} from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <div class="max-w-screen-sm mx-auto">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>

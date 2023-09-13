@@ -16,8 +16,8 @@ const {survey, numberQuestions} = storeToRefs(useSurvey)
     <div class="flex flex-col gap-3">
       <HeadingLarge>Agenday</HeadingLarge>
       <ParagraphItem>
-        Agenday é uma startup que desenvolve soluções para o
-        mercado de beleza, melhorando a experiência dos
+        Agenday é uma startup que desenvolve soluções para
+        agendamentos online, melhorando a experiência dos
         clientes e a eficiência dos negócios.
       </ParagraphItem>
     </div>
@@ -27,7 +27,7 @@ const {survey, numberQuestions} = storeToRefs(useSurvey)
       <ParagraphItem>{{ survey.data.description }}</ParagraphItem>
     </div>
 
-    <div class="flex">
+    <div class="flex justify-between">
       <HeadingSmall>
         Serão apenas {{ numberQuestions }} questões, vamos começar?
       </HeadingSmall>
