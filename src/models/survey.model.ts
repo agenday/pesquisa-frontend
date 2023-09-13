@@ -8,12 +8,13 @@ export class SurveyModel {
   updated_at: string
   questions: QuestionModel[]
 
-  constructor(data) {
+  constructor(data: any) {
+    this.questions = []
     if (data) {
       Object.assign(this, data)
 
       if (data.questions) {
-        this.questions = data.questions.map(item => new QuestionModel(item))
+        this.questions = data.questions.map((item: QuestionModel) => new QuestionModel(item))
       }
     }
   }

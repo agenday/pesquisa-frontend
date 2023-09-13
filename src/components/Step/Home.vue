@@ -23,8 +23,8 @@ const {survey, numberQuestions} = storeToRefs(useSurvey)
     </div>
 
     <div class="flex flex-col gap-3">
-      <HeadingSmall>{{ survey.data.title }}</HeadingSmall>
-      <ParagraphItem>{{ survey.data.description }}</ParagraphItem>
+      <HeadingSmall>{{ survey.data?.title }}</HeadingSmall>
+      <ParagraphItem>{{ survey.data?.description }}</ParagraphItem>
     </div>
 
     <div class="flex justify-between">

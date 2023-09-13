@@ -2,11 +2,12 @@
 import BaseQuestion from "@/components/Question/BaseQuestion.vue"
 import InputText from "@/components/Input/InputText.vue"
 import {computed} from "vue"
+import type {QuestionModel} from "@/models/question.model";
 
 const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps<{
-  question: object,
+  question: QuestionModel,
   modelValue: any
 }>()
 

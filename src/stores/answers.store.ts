@@ -22,7 +22,7 @@ export const useAnswersStore = defineStore('answers', () => {
 
   async function sendAnswers() {
     const content = {
-      survey_id: survey.value.data.id,
+      survey_id: survey.value.data?.id,
       answers: toRaw(answers)
     }
 

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import InputRadio from "@/components/Input/InputRadio.vue"
 import BaseQuestion from "@/components/Question/BaseQuestion.vue"
+import type {QuestionModel} from "@/models/question.model";
 
 const props = defineProps<{
-  question: object,
+  question: QuestionModel,
   modelValue: any
 }>()
 

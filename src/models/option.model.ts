@@ -5,7 +5,7 @@ export class OptionModel {
   created_at: string
   updated_at: string
 
-  constructor(data) {
+  constructor(data: any) {
     Object.assign(this, data)
   }
 }

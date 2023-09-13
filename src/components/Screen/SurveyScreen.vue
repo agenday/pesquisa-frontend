@@ -43,7 +43,7 @@ function nextStep() {
 
     <template
         :key="question.id"
-        v-for="(question, index) in survey.data.questions"
+        v-for="(question, index) in survey.data?.questions"
     >
       <Question
           :question="question"

@@ -4,8 +4,8 @@ import {SurveyModel} from "@/models/survey.model"
 import {loadSurvey as _loadSurvey} from "@/services/api"
 
 export const useSurveyStore = defineStore('survey', () => {
-  const survey = reactive<{data: SurveyModel}>({
-    data: new SurveyModel()
+  const survey = reactive<{data: SurveyModel|null}>({
+    data: new SurveyModel({})
   })
 
   const token = ref('')
@@ -16,7 +16,7 @@ export const useSurveyStore = defineStore('survey', () => {
     return survey.data?.questions?.length ?? 0
   })
 
-  async function loadSurvey(_token) {
+  async function loadSurvey(_token: string) {
     token.value = _token
 
     const response = await _loadSurvey(_token)

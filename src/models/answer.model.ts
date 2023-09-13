@@ -4,7 +4,7 @@ export class AnswerModel {
   text: string
   multiple_option_ids: string
 
-  constructor(data) {
+  constructor(data: any) {
     Object.assign(this, data)
   }
 }

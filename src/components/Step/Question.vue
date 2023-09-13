@@ -29,7 +29,7 @@ function nextStep() {
   const model = new AnswerModel({question_id: props.question.id})
 
   if (props.question.type === 'single-option') {
-    model.option_id = answer.value
+    model.option_id = parseInt(answer.value)
   } else if (props.question.type === 'multiple-options') {
     model.multiple_option_ids = multipleAnswer.value.join(',')
   } else {

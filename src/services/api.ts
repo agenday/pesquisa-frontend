@@ -16,15 +16,13 @@ export async function sendAnswers(token: string, content: object) {
 
     const raw = JSON.stringify(content);
 
-    const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-
     try {
-        return await fetch(url + "/" + token, requestOptions)
+        return await fetch(url + "/" + token, {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        })
     } catch (error) {
         return null
     }

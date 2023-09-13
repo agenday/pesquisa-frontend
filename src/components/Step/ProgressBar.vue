@@ -14,7 +14,7 @@ const widthProgressBar = computed(() => {
   }
 })
 
-function stepComplete(n) {
+function stepComplete(n: number) {
   return n <= props.in ? 'step-complete' : 'step-incomplete'
 }
 </script>

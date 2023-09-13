@@ -9,12 +9,13 @@ export class QuestionModel {
   updated_at: string
   options: OptionModel[]
 
-  constructor(data) {
+  constructor(data: any) {
+    this.options = []
     if (data) {
       Object.assign(this, data)
 
       if (data.options) {
-        this.options = data.options.map(item => new OptionModel(item))
+        this.options = data.options.map((item: OptionModel) => new OptionModel(item))
       }
     }
   }
