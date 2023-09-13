@@ -6,7 +6,7 @@ import MultiplesOptionsQuestion from "@/components/Question/MultiplesOptionsQues
 import TextQuestion from "@/components/Question/TextQuestion.vue"
 import {useAnswersStore} from "@/stores/answers.store"
 import type {QuestionModel} from "@/models/question.model"
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import {AnswerModel} from "@/models/answer.model"
 
 const props = defineProps<{
@@ -19,8 +19,13 @@ const useAnswer = useAnswersStore()
 
 const answer = ref('')
 const multipleAnswer = ref([])
+const alertNotEmpty = ref(false)
 
 function nextStep() {
+  if (answer.value === '' && multipleAnswer.value.length === 0) {
+    return showAlertNotEmpty()
+  }
+
   const model = new AnswerModel({question_id: props.question.id})
 
   if (props.question.type === 'single-option') {
@@ -35,6 +40,18 @@ function nextStep() {
 
   emit('nextStep')
 }
+
+function showAlertNotEmpty() {
+  alertNotEmpty.value = true
+}
+
+function hideAlertNotEmpty() {
+  alertNotEmpty.value = false
+}
+
+watch(() => answer.value, (newValue) => {
+  if (!!newValue) hideAlertNotEmpty()
+})
 </script>
 
 <template>
@@ -43,23 +60,33 @@ function nextStep() {
       <HeadingLarge>Agenday</HeadingLarge>
     </div>
 
-    <SingleOptionQuestion
-        v-if="question.type === 'single-option'"
-        v-model="answer"
-        :question="question"
-    />
+    <div>
+      <SingleOptionQuestion
+          v-if="question.type === 'single-option'"
+          v-model="answer"
+          :question="question"
+      />
 
-    <MultiplesOptionsQuestion
-        v-if="question.type === 'multiple-options'"
-        v-model="multipleAnswer"
-        :question="question"
-    />
+      <MultiplesOptionsQuestion
+          v-if="question.type === 'multiple-options'"
+          v-model="multipleAnswer"
+          :question="question"
+      />
 
-    <TextQuestion
-        v-if="question.type === 'text'"
-        v-model="answer"
-        :question="question"
-    />
+      <TextQuestion
+          v-if="question.type === 'text'"
+          v-model="answer"
+          :question="question"
+      />
+
+      <small
+          class="text-red-400"
+          v-if="alertNotEmpty"
+      >
+        Por favor, informe sua resposta para prosseguir.
+      </small>
+    </div>
+
 
     <div class="flex justify-between">
       <ButtonItem
