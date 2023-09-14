@@ -7,10 +7,9 @@ import SurveyScreen from "@/components/Screen/SurveyScreen.vue"
 import NotFoundScreen from "@/components/Screen/NotFoundScreen.vue"
 import AnsweredScreen from "@/components/Screen/AnsweredScreen.vue";
 import ServerErrorScreen from "@/components/Screen/ServerErrorScreen.vue";
+import {useRoute} from "vue-router";
 
-const props = defineProps<{
-  token: string
-}>()
+const router = useRoute()
 
 const useSurvey = useSurveyStore()
 const {status} = storeToRefs(useSurvey)
@@ -19,7 +18,10 @@ const loading = ref(false)
 
 onMounted(async () => {
   loading.value = true
-  await useSurvey.loadSurvey(props.token)
+
+  const token = router.query.token
+
+  await useSurvey.loadSurvey(token)
   loading.value = false
 })
 </script>
