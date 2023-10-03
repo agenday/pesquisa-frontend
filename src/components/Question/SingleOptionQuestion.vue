@@ -18,7 +18,7 @@ defineEmits(['update:modelValue'])
         :name="`question_${question.id}`"
         :key="option.id"
         v-for="option in question.options"
-        v-model="option.id"
+        :model-value="option.id"
         @input="$emit('update:modelValue', $event.target.value)"
     >
       {{ option.description }}

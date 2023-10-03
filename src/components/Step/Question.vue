@@ -57,7 +57,7 @@ watch(() => answer.value, (newValue) => {
 <template>
   <div class="flex flex-col gap-24">
     <div class=" flex flex-col gap-3">
-      <HeadingLarge>Agenday</HeadingLarge>
+      <HeadingLarge class="font-lufga">Agenday</HeadingLarge>
     </div>
 
     <div>
