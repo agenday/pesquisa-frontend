@@ -7,13 +7,16 @@ import ParagraphItem from "@/components/Paragraph/ParagraphItem.vue"
   <div
       class="w-full min-h-screen flex flex-col px-8 items-center justify-center"
   >
-    <HeadingLarge class="loading relative">Agenday</HeadingLarge>
+    <HeadingLarge class="loading relative flex flex-col justify-center items-center">
+      <span class="font-lufga">Agenday</span>
+      <img src="../../assets/logo.svg" width="80"  alt="logo"/>
+    </HeadingLarge>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .loading::after {
-  content: '';
+  //content: '';
   width: 15px;
   height: 2px;
   position: absolute;

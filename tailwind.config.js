@@ -13,6 +13,9 @@ module.exports = {
         'auro-metal-saurus': '#837F74',
         ...defaultTheme.colors
       },
+      fontFamily: {
+        'lufga': ['Lufga', ...defaultTheme.fontFamily.sans]
+      }
     },
   },
   plugins: [],

@@ -14,9 +14,9 @@ const {survey, numberQuestions} = storeToRefs(useSurvey)
 <template>
   <div class="flex flex-col gap-24">
     <div class="flex flex-col gap-3">
-      <HeadingLarge>Agenday</HeadingLarge>
+      <HeadingLarge class="font-lufga">Agenday</HeadingLarge>
       <ParagraphItem>
-        Agenday é uma startup que desenvolve soluções para
+        Somos startup que desenvolve soluções para
         agendamentos online, melhorando a experiência dos
         clientes e a eficiência dos negócios.
       </ParagraphItem>
